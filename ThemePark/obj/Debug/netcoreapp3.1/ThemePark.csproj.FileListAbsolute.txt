@@ -86,3 +86,4 @@ C:\Users\Jason Gardner\source\repos\ThemePark\ThemePark\obj\Debug\netcoreapp3.1\
 C:\Users\Jason Gardner\source\repos\ThemePark\ThemePark\obj\Debug\netcoreapp3.1\staticwebassets\ThemePark.StaticWebAssets.Manifest.cache
 C:\Users\Jason Gardner\source\repos\ThemePark\ThemePark\obj\Debug\netcoreapp3.1\staticwebassets\ThemePark.StaticWebAssets.xml
 C:\Users\Jason Gardner\source\repos\ThemePark\ThemePark\obj\Debug\netcoreapp3.1\ThemePark.genruntimeconfig.cache
+C:\Users\Jason Gardner\source\repos\ThemePark\ThemePark\bin\Debug\netcoreapp3.1\Data\Ride.json

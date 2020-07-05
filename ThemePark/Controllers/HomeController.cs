@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using ThemePark.Models;
 
 namespace ThemePark.Controllers
@@ -20,17 +24,34 @@ namespace ThemePark.Controllers
 
         public IActionResult Index()
         {
-            Park myPark = new Park()
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "../ThemePark/Data/Ride.json";
+            List<Park> myParks = new List<Park>();
+
+            
+            using (StreamReader reader = new StreamReader(resourceName))
             {
-                parkCity = "Sandusky",
-                parkState = "Ohio",
-                parkName = "Cedar Point"
-            };
+                string jsonFile = reader.ReadToEnd(); //Make string equal to full file
+                JsonDocument responseList = JsonDocument.Parse(jsonFile);
+                var parks = responseList.RootElement.GetProperty("result");
+
+                for(int i = 0; i < parks.GetArrayLength(); i++)
+                {
+                    myParks.Add(new Park()
+                    {
+                        parkName = parks[i].GetProperty("parkName").ToString(),
+                        parkCity = parks[i].GetProperty("parkCity").ToString(),
+                        parkState = parks[i].GetProperty("parkState").ToString(),
+                        parkYear = parks[i].GetProperty("parkInfo").ToString(),
+                        isOpen = parks[i].GetProperty("isOpen").GetBoolean()
+                    }); 
+                }
+            }
 
             Coaster Maverick = new Coaster()
             {
                 rideName = "Maverick",
-                ridePark = myPark,
+                ridePark = myParks[0],
                 opStatus = true
             };
 

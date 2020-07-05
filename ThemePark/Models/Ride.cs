@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace ThemePark.Models
@@ -11,8 +12,8 @@ namespace ThemePark.Models
         string isOpen();
 
     }
-    
-    public class Coaster : IRide
+
+    public class Ride : IRide
     {
         public string rideName;
         public Park ridePark;
@@ -23,16 +24,22 @@ namespace ThemePark.Models
             return ($"Here are the stats for this ride: {this.rideName} is located at {this.ridePark.parkStats()}. {this.isOpen()}");
         }
 
-        public string isOpen()
+        public string isOpen() 
         {
             if (this.opStatus)
             {
                 return ("This ride is currently open.");
-            } else
+            }
+            else
             {
                 return ("This ride is currently closed.");
             }
-            
         }
+    }
+    
+    public class Coaster : Ride
+    {
+        public double coasterRating;
+        public int rideRatings;
     }
 }

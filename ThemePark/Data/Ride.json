@@ -1,0 +1,25 @@
+{
+    "result": [
+        {
+            "parkName": "Cedar Point",
+            "parkState": "Ohio",
+            "parkCity": "Sandusky",
+            "parkInfo": "2000",
+            "isOpen":  true
+        },
+        {
+            "parkName": "Cedar Point",
+            "parkState": "Ohio",
+            "parkCity": "Sandusky",
+            "parkInfo": "2000",
+            "isOpen": true
+        },
+        {
+            "parkName": "Cedar Point",
+            "parkState": "Ohio",
+            "parkCity": "Sandusky",
+            "parkInfo": "2000",
+            "isOpen": true
+        }
+    ]
+}
